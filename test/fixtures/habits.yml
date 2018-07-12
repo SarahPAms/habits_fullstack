@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  habit_name: MyString
+  habit_description: MyText
+  proposed_iterations: 1
+  proposed_duration: 2018-07-01 00:01:01
+
+two:
+  habit_name: MyString
+  habit_description: MyText
+  proposed_iterations: 1
+  proposed_duration: 2018-07-01 00:01:01

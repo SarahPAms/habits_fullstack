@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_datete: 
+  completed: false
+  times_completed: 1
+
+two:
+  start_datete: 
+  completed: false
+  times_completed: 1
