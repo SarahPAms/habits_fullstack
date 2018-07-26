@@ -27,6 +27,7 @@ gem 'puma', '~> 3.7'
 gem 'devise_token_auth'
 gem 'cancancan', '~> 2.0'
 gem 'graphql', '~> 1.8.5'
+gem "graphiql-rails", '~> 1.4.11'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -40,6 +41,11 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'foreman', '~> 0.82.0'
 end
+
+# added to make graphql work
+gem 'sass-rails'
+gem 'uglifier'
+gem 'coffee-rails'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
