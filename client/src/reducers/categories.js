@@ -1,11 +1,12 @@
-import { FETCH_CATEGORIES } from '../actions/categories';
 
-export default function(state = [ ], action){
-    switch( action.type ){
-        case FETCH_CATEGORIES:
-            return [ action.payload.data, ...state];
+export default (state = [], { type, payload } = {}) => {
+    switch( type ){
+        case 'GET_CATEGORIES':
+            console.log(payload)
+            return state.concat(payload)
 
-            default:
+
+        default:
             return state;
     }
 

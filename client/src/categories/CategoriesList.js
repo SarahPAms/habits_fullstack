@@ -1,27 +1,32 @@
-import React, { PureComponent } from 'react'
+import * as React from 'react'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux';
-
-import fetchCategories from '../actions/categories'
+import { getCategories } from '../actions/categories'
 
 
-class CategoriesList extends PureComponent {
 
+
+
+export class CategoriesList extends React.PureComponent {
 
     componentWillMount() {
-        fetchCategories();
+        this.props.getCategories()
     }
-    renderList(categories){
-        return this.props.categories.map((category) => {
-            return (
-                <li>
-                    key={category.title}
 
-                    className="list-group-item"
+    renderList(){
+        const { categories } = this.props
+        console.log("CategoriesList")
+        console.log(categories)
+
+        categories.map((category, index) => (
+
+                <li key={category.title}
+                    className="list-group-item" >
                     {category.title} {category.score}
                 </li>
-            );
-        });
+
+        ));
+
+
     }
 
     render(){
@@ -33,10 +38,8 @@ class CategoriesList extends PureComponent {
     }
 }
 
-const mapStateToProps = ({ categories }) => ({
-    categories
-})
+const mapStateToProps = ({ categories }) => ({ categories })
 
 
 
-export default connect(mapStateToProps)(CategoriesList)
+export default connect(mapStateToProps, { getCategories })(CategoriesList)

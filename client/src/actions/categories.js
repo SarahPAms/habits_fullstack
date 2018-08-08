@@ -1,14 +1,23 @@
-import axios from 'axios';
-
-export const FETCH_CATEGORIES = "FETCH_CATEGORIES";
+import request from 'superagent';
 
 
-export default function fetchCategories(){
-    const url = "api/categories"
-    const request = axios.get( url )
 
-    return {
-        type: FETCH_CATEGORIES,
-        payload: request
-    };
+export const getCategories = () => {
+    return (dispatch) => {
+        request
+            .get('/api/categories')
+            .set('Accept', 'application/json')
+            .then((response) => {
+                const categories = response.body
+                dispatch({
+                    type: 'GET_CATEGORIES',
+                    payload: categories
+                })
+            })
+            .catch((error) => {
+                console.error('Something went wrong!', error)
+            })
+    }
+
+
 }
